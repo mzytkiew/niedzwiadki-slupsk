@@ -1,3 +1,13 @@
+/* =========================================================
+   SŁUPSKIE NIEDŹWIADKI SZCZĘŚCIA
+   niedzwiadkislupsk.org
+   ========================================================= */
+
+
+/* =========================
+   GLOBAL
+   ========================= */
+
 * {
     box-sizing: border-box;
 }
@@ -8,10 +18,14 @@ html {
 
 body {
     margin: 0;
+
     background: #ffffff;
     color: #111111;
+
     font-family: "Lexend", sans-serif;
     font-weight: 300;
+
+    -webkit-font-smoothing: antialiased;
 }
 
 a {
@@ -19,35 +33,54 @@ a {
     text-decoration: none;
 }
 
+img {
+    max-width: 100%;
+    display: block;
+}
 
-/* HEADER */
+
+/* =========================
+   HEADER
+   ========================= */
 
 .header {
-    height: 100px;
-    padding: 0 4vw;
+    min-height: 120px;
+
+    padding: 15px 4vw;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    border-bottom: 1px solid #111;
+    border-bottom: 1px solid #111111;
+
+    background: #ffffff;
 }
 
 .logo {
-    font-size: 13px;
-    line-height: 1.05;
-    letter-spacing: .08em;
-    font-weight: 500;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.logo img {
+    display: block;
+
+    width: 240px;
+    height: auto;
 }
 
 .navigation {
     display: flex;
+    align-items: center;
+
     gap: 35px;
 }
 
 .navigation a {
     font-size: 13px;
-    transition: opacity .2s;
+
+    transition: opacity .2s ease;
 }
 
 .navigation a:hover {
@@ -59,7 +92,9 @@ a {
 }
 
 
-/* HERO */
+/* =========================
+   HERO
+   ========================= */
 
 .hero {
     min-height: 720px;
@@ -73,24 +108,31 @@ a {
 
 .hero-number {
     font-size: 11px;
+
     letter-spacing: .12em;
+
+    text-transform: uppercase;
 }
 
 .hero h1 {
     margin: 60px 0;
 
     font-size: clamp(70px, 10vw, 165px);
+
     font-weight: 300;
+
     letter-spacing: -.06em;
+
     line-height: .84;
 }
 
 .hero-bottom {
     display: flex;
+
     justify-content: space-between;
     align-items: flex-end;
 
-    border-top: 1px solid #111;
+    border-top: 1px solid #111111;
 
     padding-top: 25px;
 }
@@ -101,15 +143,24 @@ a {
     margin: 0;
 
     font-size: 16px;
+
     line-height: 1.6;
 }
 
 .text-link {
     font-size: 14px;
+
+    transition: opacity .2s ease;
+}
+
+.text-link:hover {
+    opacity: .45;
 }
 
 
-/* FEATURED IMAGE */
+/* =========================
+   FEATURED IMAGE
+   ========================= */
 
 .featured-image {
     padding: 0 4vw;
@@ -117,21 +168,27 @@ a {
 
 .image-placeholder {
     height: 75vh;
+
     min-height: 500px;
 
-    background: #111;
-    color: white;
+    background: #111111;
+
+    color: #ffffff;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
     font-size: 11px;
+
     letter-spacing: .2em;
 }
 
 
-/* SECTIONS */
+/* =========================
+   GENERAL SECTIONS
+   ========================= */
 
 .section {
     padding: 130px 4vw;
@@ -139,6 +196,7 @@ a {
 
 .section-heading {
     display: grid;
+
     grid-template-columns: 100px 1fr 350px;
 
     padding-bottom: 70px;
@@ -146,45 +204,59 @@ a {
 
 .section-number {
     font-size: 11px;
+
+    letter-spacing: .05em;
 }
 
 .section h2 {
     margin: 0;
 
     font-size: clamp(50px, 6vw, 100px);
+
     font-weight: 300;
+
     letter-spacing: -.05em;
+
+    line-height: 1;
 }
 
 .section-heading p {
     margin: 15px 0 0;
 
     line-height: 1.6;
+
     font-size: 14px;
 }
 
 
-/* BEARS */
+/* =========================
+   NIEDŹWIADKI
+   ========================= */
 
 .bear-list {
-    border-top: 1px solid #111;
+    border-top: 1px solid #111111;
 }
 
 .bear {
     min-height: 110px;
 
     display: grid;
+
     grid-template-columns: 100px 1fr 50px;
+
     align-items: center;
 
-    border-bottom: 1px solid #111;
+    border-bottom: 1px solid #111111;
 
-    transition: background .2s, color .2s;
+    transition:
+        background .2s ease,
+        color .2s ease;
 }
 
 .bear:hover {
-    background: #111;
-    color: #fff;
+    background: #111111;
+
+    color: #ffffff;
 }
 
 .bear-number {
@@ -193,40 +265,82 @@ a {
 
 .bear-name {
     font-size: clamp(30px, 4vw, 60px);
+
     letter-spacing: -.04em;
+
+    font-weight: 300;
 }
 
 .bear-arrow {
     font-size: 25px;
+
+    text-align: right;
 }
 
 
-/* DARK */
+/* =========================
+   DARK SECTION
+   ========================= */
 
 .dark-section {
-    background: #111;
-    color: #fff;
+    background: #111111;
+
+    color: #ffffff;
 }
 
-.map-placeholder {
-    height: 600px;
 
-    border: 1px solid #555;
+/* =========================
+   MAPA UMAP
+   ========================= */
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.map-container {
+    width: 100%;
+}
+
+.map-container iframe {
+    display: block;
+
+    width: 100%;
+
+    height: 70vh;
+
+    min-height: 600px;
+
+    border: 0;
+
+    filter: grayscale(100%);
+}
+
+.map-fullscreen {
+    display: inline-block;
+
+    margin-top: 18px;
+
+    padding-bottom: 3px;
 
     font-size: 12px;
-    letter-spacing: .15em;
+
+    letter-spacing: .02em;
+
+    border-bottom: 1px solid currentColor;
+
+    transition: opacity .2s ease;
+}
+
+.map-fullscreen:hover {
+    opacity: .5;
 }
 
 
-/* GALLERY */
+/* =========================
+   GALERIA
+   ========================= */
 
 .gallery {
     display: grid;
+
     grid-template-columns: repeat(2, 1fr);
+
     gap: 15px;
 }
 
@@ -236,15 +350,21 @@ a {
     background: #eeeeee;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
+
+    font-size: 12px;
 }
 
 
-/* PROJECT */
+/* =========================
+   O PROJEKCIE
+   ========================= */
 
 .project {
     display: grid;
+
     grid-template-columns: 100px 1fr;
 }
 
@@ -254,72 +374,108 @@ a {
 
 .large-text {
     font-size: clamp(28px, 4vw, 60px);
+
     line-height: 1.15;
+
     letter-spacing: -.04em;
+
+    font-weight: 300;
+}
+
+.project-content p:not(.large-text) {
+    max-width: 700px;
+
+    line-height: 1.8;
 }
 
 
-/* ABOUT */
+/* =========================
+   O MNIE
+   ========================= */
 
 .about {
-    border-top: 1px solid #111;
+    border-top: 1px solid #111111;
 }
 
 .about-grid {
     margin-top: 60px;
 
     display: grid;
+
     grid-template-columns: 1fr 1fr;
+
     gap: 7vw;
 }
 
 .portrait-placeholder {
     aspect-ratio: 4 / 5;
 
-    background: #111;
-    color: #fff;
+    background: #111111;
+
+    color: #ffffff;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
     font-size: 11px;
+
     letter-spacing: .15em;
 }
 
 .about-text {
     display: flex;
+
     flex-direction: column;
+
     justify-content: center;
 }
 
 .about-text p:not(.large-text) {
     max-width: 600px;
+
     line-height: 1.8;
 }
 
 
-/* FOOTER */
+/* =========================
+   FOOTER
+   ========================= */
 
 footer {
     padding: 50px 4vw;
 
-    background: #111;
-    color: #fff;
+    background: #111111;
+
+    color: #ffffff;
 
     display: flex;
+
     justify-content: space-between;
 
     font-size: 11px;
+
+    letter-spacing: .02em;
 }
 
 
-/* MOBILE */
+/* =========================================================
+   TABLET / MOBILE
+   ========================================================= */
 
 @media (max-width: 800px) {
 
+    /* HEADER */
+
     .header {
-        height: 75px;
+        min-height: 75px;
+
+        padding: 10px 5vw;
+    }
+
+    .logo img {
+        width: 155px;
     }
 
     .navigation {
@@ -329,29 +485,67 @@ footer {
     .menu-button {
         display: block;
 
+        padding: 0;
+
         background: none;
+
         border: 0;
 
+        color: #111111;
+
         font-family: inherit;
+
         font-size: 12px;
+
+        cursor: pointer;
     }
+
+
+    /* HERO */
 
     .hero {
         min-height: 650px;
+
+        padding-left: 5vw;
+        padding-right: 5vw;
     }
 
     .hero h1 {
         font-size: 17vw;
+
+        line-height: .88;
     }
 
     .hero-bottom {
         display: block;
     }
 
+    .hero-bottom p {
+        max-width: 100%;
+    }
+
     .text-link {
         display: block;
+
         margin-top: 30px;
     }
+
+
+    /* FEATURED IMAGE */
+
+    .featured-image {
+        padding-left: 5vw;
+        padding-right: 5vw;
+    }
+
+    .image-placeholder {
+        height: 60vh;
+
+        min-height: 400px;
+    }
+
+
+    /* SECTIONS */
 
     .section {
         padding: 80px 5vw;
@@ -359,6 +553,8 @@ footer {
 
     .section-heading {
         display: block;
+
+        padding-bottom: 50px;
     }
 
     .section-heading h2 {
@@ -369,14 +565,45 @@ footer {
         margin-top: 25px;
     }
 
+
+    /* NIEDŹWIADKI */
+
     .bear {
         grid-template-columns: 50px 1fr 30px;
+
         min-height: 85px;
     }
+
+    .bear-name {
+        font-size: clamp(26px, 8vw, 45px);
+    }
+
+    .bear-arrow {
+        font-size: 20px;
+    }
+
+
+    /* MAPA */
+
+    .map-container iframe {
+        height: 65vh;
+
+        min-height: 450px;
+    }
+
+    .map-fullscreen {
+        margin-top: 15px;
+    }
+
+
+    /* GALERIA */
 
     .gallery {
         grid-template-columns: 1fr;
     }
+
+
+    /* O PROJEKCIE */
 
     .project {
         display: block;
@@ -386,12 +613,940 @@ footer {
         margin-top: 30px;
     }
 
+
+    /* O MNIE */
+
     .about-grid {
         grid-template-columns: 1fr;
+
+        gap: 50px;
     }
+
+
+    /* FOOTER */
 
     footer {
         gap: 30px;
+
         flex-direction: column;
+
+        padding-left: 5vw;
+        padding-right: 5vw;
     }
+}
+
+
+/* =========================================================
+   MAŁE TELEFONY
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .hero {
+        min-height: 580px;
+
+        padding-top: 50px;
+        padding-bottom: 40px;
+    }
+
+    .hero h1 {
+        margin: 40px 0;
+
+        font-size: 16vw;
+    }
+
+    .hero-bottom p {
+        font-size: 14px;
+    }
+
+    .section {
+        padding-top: 70px;
+        padding-bottom: 70px;
+    }
+
+    .map-container iframe {
+        height: 60vh;
+
+        min-height: 400px;
+    }
+
+    .large-text {
+        font-size: 30px;
+    }
+}
+
+/* =========================================================
+   PODSTRONA NIEDŹWIADKA
+   ========================================================= */
+
+
+/* POWRÓT */
+
+.bear-back {
+    padding: 35px 4vw 0;
+}
+
+.bear-back a {
+    font-size: 12px;
+    transition: opacity .2s ease;
+}
+
+.bear-back a:hover {
+    opacity: .45;
+}
+
+
+/* HERO */
+
+.bear-hero {
+    padding: 70px 4vw 100px;
+}
+
+.bear-detail-number {
+    display: block;
+
+    margin-bottom: 50px;
+
+    font-size: 11px;
+    letter-spacing: .1em;
+}
+
+.bear-hero h1 {
+    margin: 0;
+
+    max-width: 1400px;
+
+    font-size: clamp(75px, 11vw, 180px);
+
+    font-weight: 300;
+
+    letter-spacing: -.065em;
+
+    line-height: .84;
+}
+
+.bear-meta {
+    margin-top: 80px;
+    padding-top: 25px;
+
+    border-top: 1px solid #111111;
+
+    display: grid;
+    grid-template-columns: repeat(2, minmax(200px, 350px));
+
+    gap: 60px;
+}
+
+.meta-label {
+    font-size: 10px;
+
+    letter-spacing: .12em;
+
+    text-transform: uppercase;
+}
+
+.bear-meta p {
+    margin: 10px 0 0;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+
+/* GŁÓWNE ZDJĘCIE */
+
+.bear-main-photo {
+    padding: 0 4vw;
+}
+
+.bear-photo-placeholder {
+    width: 100%;
+
+    height: 80vh;
+    min-height: 600px;
+
+    background: #111111;
+    color: #ffffff;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 11px;
+
+    letter-spacing: .15em;
+}
+
+
+/* HISTORIA */
+
+.bear-story {
+    padding: 140px 4vw;
+
+    display: grid;
+
+    grid-template-columns: 20% 1fr;
+
+    gap: 50px;
+}
+
+.bear-story-label {
+    padding-top: 12px;
+
+    font-size: 10px;
+
+    letter-spacing: .15em;
+}
+
+.bear-story-content {
+    max-width: 1000px;
+}
+
+.bear-story-content h2 {
+    margin: 0 0 60px;
+
+    font-size: clamp(50px, 7vw, 110px);
+
+    font-weight: 300;
+
+    letter-spacing: -.055em;
+
+    line-height: .9;
+}
+
+.bear-story-content p:not(.large-text) {
+    max-width: 700px;
+
+    font-size: 15px;
+
+    line-height: 1.9;
+}
+
+
+/* GALERIA */
+
+.bear-gallery-section {
+    padding: 120px 4vw;
+
+    background: #111111;
+    color: #ffffff;
+}
+
+.bear-gallery-heading {
+    margin-bottom: 70px;
+
+    display: grid;
+
+    grid-template-columns: 20% 1fr;
+}
+
+.bear-gallery-heading span {
+    padding-top: 10px;
+
+    font-size: 10px;
+
+    letter-spacing: .15em;
+}
+
+.bear-gallery-heading h2 {
+    margin: 0;
+
+    font-size: clamp(50px, 7vw, 110px);
+
+    font-weight: 300;
+
+    letter-spacing: -.055em;
+}
+
+.bear-detail-gallery {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 15px;
+}
+
+.bear-gallery-placeholder {
+    aspect-ratio: 4 / 3;
+
+    background: #ffffff;
+    color: #111111;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 11px;
+}
+
+
+/* POPRZEDNI / NASTĘPNY */
+
+.bear-navigation {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    border-bottom: 1px solid #111111;
+}
+
+.bear-navigation a {
+    min-height: 220px;
+
+    padding: 45px 4vw;
+
+    display: flex;
+
+    flex-direction: column;
+    justify-content: space-between;
+
+    font-size: clamp(22px, 3vw, 45px);
+
+    font-weight: 300;
+
+    transition:
+        background .2s ease,
+        color .2s ease;
+}
+
+.bear-navigation a:first-child {
+    border-right: 1px solid #111111;
+}
+
+.bear-navigation a:hover {
+    background: #111111;
+
+    color: #ffffff;
+}
+
+.bear-navigation span {
+    font-size: 10px;
+
+    letter-spacing: .12em;
+}
+
+.next-bear {
+    text-align: right;
+}
+
+
+/* =========================================================
+   PODSTRONA NIEDŹWIADKA — MOBILE
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+    .bear-back {
+        padding:
+            25px 5vw
+            0;
+    }
+
+    .bear-hero {
+        padding:
+            50px 5vw
+            70px;
+    }
+
+    .bear-detail-number {
+        margin-bottom: 35px;
+    }
+
+    .bear-hero h1 {
+        font-size: 16vw;
+    }
+
+    .bear-meta {
+        margin-top: 55px;
+
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+    }
+
+    .bear-main-photo {
+        padding:
+            0 5vw;
+    }
+
+    .bear-photo-placeholder {
+        height: 65vh;
+
+        min-height: 450px;
+    }
+
+    .bear-story {
+        padding:
+            90px 5vw;
+
+        display: block;
+    }
+
+    .bear-story-label {
+        margin-bottom: 35px;
+    }
+
+    .bear-story-content h2 {
+        margin-bottom: 40px;
+    }
+
+    .bear-gallery-section {
+        padding:
+            80px 5vw;
+    }
+
+    .bear-gallery-heading {
+        display: block;
+
+        margin-bottom: 45px;
+    }
+
+    .bear-gallery-heading span {
+        display: block;
+
+        margin-bottom: 25px;
+    }
+
+    .bear-detail-gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .bear-navigation {
+        grid-template-columns: 1fr;
+    }
+
+    .bear-navigation a {
+        min-height: 160px;
+
+        padding:
+            35px 5vw;
+    }
+
+    .bear-navigation a:first-child {
+        border-right: 0;
+
+        border-bottom: 1px solid #111111;
+    }
+
+}
+.bear-main-image--portrait {
+    object-fit: contain;
+    background: #f4f4f4;
+}
+
+.bear-detail-gallery {
+    align-items: start;
+}
+
+.bear-gallery-item {
+    margin: 0;
+    overflow: hidden;
+}
+
+.bear-gallery-item img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+@media (max-width: 800px) {
+    .bear-main-image--portrait {
+        height: auto;
+        max-height: 75vh;
+    }
+}
+
+/* GALERIA V2 */
+.bear-main-image--portrait{object-fit:contain;background:#f4f4f4}
+.bear-detail-gallery{display:flex;flex-direction:column;gap:18px}
+.gallery-row{display:grid;gap:18px;align-items:start}
+.gallery-row--landscape{grid-template-columns:repeat(2,minmax(0,1fr))}
+.gallery-row--landscape.gallery-row--single{grid-template-columns:1fr}
+.gallery-row--portrait{grid-template-columns:repeat(2,minmax(0,1fr));width:min(72%,1050px);margin:0 auto}
+.gallery-row--portrait.gallery-row--single{grid-template-columns:1fr;width:min(36%,520px)}
+.bear-gallery-item{margin:0;overflow:hidden}
+.bear-gallery-item img{display:block;width:100%;height:auto}
+@media(max-width:800px){
+.bear-main-image--portrait{height:auto;max-height:75vh}
+.bear-detail-gallery,.gallery-row{gap:12px}
+.gallery-row--landscape,.gallery-row--portrait{grid-template-columns:1fr;width:100%}
+.gallery-row--portrait .bear-gallery-item{width:min(78%,480px);margin:0 auto}
+.gallery-row--portrait.gallery-row--single{width:100%}
+}
+
+/* ========================================
+   GALERIA KOLAŻY
+   ======================================== */
+
+.collage-gallery {
+    width: 100%;
+    max-width: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 12px;
+    margin-top: 70px;
+}
+
+.collage-item {
+    display: block;
+
+    width: 100%;
+    min-width: 0;
+
+    margin: 0;
+    padding: 0;
+
+    border: 0;
+    background: transparent;
+
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.collage-item img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    margin: 0;
+
+    transition: transform 0.4s ease, opacity 0.3s ease;
+}
+
+.collage-item:hover img {
+    transform: scale(1.015);
+    opacity: 0.85;
+}
+
+
+/* ========================================
+   LIGHTBOX — DUŻY PODGLĄD
+   ======================================== */
+
+.lightbox {
+    position: fixed;
+    inset: 0;
+
+    z-index: 99999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px;
+
+    background: rgba(0, 0, 0, 0.95);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease;
+}
+
+.lightbox.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.lightbox img {
+    display: block;
+
+    width: auto;
+    height: auto;
+
+    max-width: 92vw;
+    max-height: 90vh;
+
+    object-fit: contain;
+}
+
+.lightbox-close {
+    position: absolute;
+
+    top: 25px;
+    right: 35px;
+
+    z-index: 100000;
+
+    margin: 0;
+    padding: 0;
+
+    border: 0;
+
+    background: transparent;
+    color: #ffffff;
+
+    font-family: 'Lexend', sans-serif;
+    font-size: 48px;
+    font-weight: 300;
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition: opacity 0.2s ease;
+}
+
+.lightbox-close:hover {
+    opacity: 0.5;
+}
+
+
+/* ========================================
+   GALERIA — TABLET
+   ======================================== */
+
+@media (max-width: 1000px) {
+
+    .collage-gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+/* ========================================
+   GALERIA — TELEFON
+   ======================================== */
+
+@media (max-width: 600px) {
+
+    .collage-gallery {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-top: 45px;
+    }
+
+    .lightbox {
+        padding: 20px;
+    }
+
+    .lightbox img {
+        max-width: 95vw;
+        max-height: 85vh;
+    }
+
+    .lightbox-close {
+        top: 15px;
+        right: 20px;
+
+        font-size: 40px;
+    }
+
+}
+
+/* ========================================
+   NAGŁÓWEK SEKCJI GALERIA — POPRAWKA
+   ======================================== */
+
+.gallery-section .section-heading {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+}
+
+.gallery-section .section-heading h2 {
+    margin: 0;
+
+    font-size: clamp(70px, 9vw, 150px);
+    font-weight: 300;
+    line-height: 0.9;
+    letter-spacing: -0.06em;
+}
+
+.gallery-section .section-heading p {
+    margin: 10px 0 0 0;
+
+    max-width: 650px;
+
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+
+/* TABLET / TELEFON */
+
+@media (max-width: 800px) {
+
+    .gallery-section .section-heading {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .gallery-section .section-heading h2 {
+        font-size: clamp(60px, 18vw, 100px);
+    }
+
+    .gallery-section .section-heading p {
+        margin-top: 0;
+    }
+
+}
+
+/* ========================================
+   KONTAKT
+   ======================================== */
+
+.contact-section {
+    border-top: 1px solid #111111;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    margin-top: 50px;
+}
+
+.contact-heading h2 {
+    margin: 0;
+
+    font-size: clamp(70px, 9vw, 150px);
+    font-weight: 300;
+    line-height: 0.9;
+    letter-spacing: -0.06em;
+}
+
+.contact-content {
+    max-width: 750px;
+}
+
+.contact-content .large-text {
+    margin-top: 5px;
+    margin-bottom: 30px;
+
+    font-size: clamp(24px, 2.5vw, 40px);
+    font-weight: 300;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+}
+
+.contact-intro {
+    max-width: 650px;
+
+    margin: 0 0 70px;
+
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+
+/* FORMULARZ */
+
+.contact-form {
+    width: 100%;
+}
+
+.form-field {
+    margin-bottom: 40px;
+}
+
+.form-field label {
+    display: block;
+
+    margin-bottom: 12px;
+
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.form-field input,
+.form-field textarea {
+    display: block;
+
+    width: 100%;
+
+    padding: 12px 0;
+
+    border: 0;
+    border-bottom: 1px solid #111111;
+    border-radius: 0;
+
+    outline: none;
+
+    background: transparent;
+    color: #111111;
+
+    font-family: 'Lexend', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.form-field textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+    border-bottom-width: 2px;
+}
+
+
+/* ZGODA */
+
+.form-consent {
+    display: grid;
+    grid-template-columns: 18px 1fr;
+    gap: 15px;
+
+    align-items: start;
+
+    margin: 50px 0;
+}
+
+.form-consent input {
+    width: 16px;
+    height: 16px;
+
+    margin: 2px 0 0;
+
+    accent-color: #111111;
+}
+
+.form-consent label {
+    max-width: 600px;
+
+    font-size: 11px;
+    line-height: 1.6;
+
+    cursor: pointer;
+}
+
+
+/* PRZYCISK */
+
+.contact-submit {
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 25px 0;
+
+    border: 0;
+    border-top: 1px solid #111111;
+    border-bottom: 1px solid #111111;
+
+    background: transparent;
+    color: #111111;
+
+    font-family: 'Lexend', sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+
+    cursor: pointer;
+
+    transition:
+        padding 0.25s ease,
+        background 0.25s ease,
+        color 0.25s ease;
+}
+
+.contact-submit span {
+    font-size: 22px;
+}
+
+.contact-submit:hover {
+    padding-left: 20px;
+    padding-right: 20px;
+
+    background: #111111;
+    color: #ffffff;
+}
+
+
+/* KOMUNIKAT PO WYSŁANIU */
+
+.form-status {
+    min-height: 24px;
+
+    margin: 25px 0 0;
+
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .contact-heading h2 {
+        font-size: clamp(60px, 18vw, 100px);
+    }
+
+    .contact-intro {
+        margin-bottom: 50px;
+    }
+
+}
+
+.hero-image {
+    width: 100%;
+    overflow: hidden;
+}
+
+.hero-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* ========================================
+   BANER GŁÓWNY
+   ======================================== */
+
+.featured-image {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.hero-image {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.hero-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* ========================================
+   STICKY MENU + PRZEWIJANIE
+   ======================================== */
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 10000;
+    background: #ffffff;
+}
+
+html {
+    scroll-padding-top: 120px;
+    scroll-behavior: smooth;
 }
