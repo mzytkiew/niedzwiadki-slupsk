@@ -1,0 +1,5 @@
+generate_pages.py
+data/
+.git/
+.github/
+README.md
