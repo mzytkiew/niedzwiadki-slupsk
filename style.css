@@ -830,16 +830,16 @@ footer {
 .bear-gallery-section {
     padding: 120px 4vw;
 
-    background: #111111;
-    color: #ffffff;
+    background: #ffffff;
+    color: #111111;
 }
 
 .bear-gallery-heading {
     margin-bottom: 70px;
 
     display: grid;
-
-    grid-template-columns: 20% 1fr;
+    grid-template-columns: 20% minmax(0, 1fr);
+    gap: 50px;
 }
 
 .bear-gallery-heading span {
@@ -1059,22 +1059,54 @@ footer {
     }
 }
 
-/* GALERIA V2 */
-.bear-main-image--portrait{object-fit:contain;background:#f4f4f4}
-.bear-detail-gallery{display:flex;flex-direction:column;gap:18px}
-.gallery-row{display:grid;gap:18px;align-items:start}
-.gallery-row--landscape{grid-template-columns:repeat(2,minmax(0,1fr))}
-.gallery-row--landscape.gallery-row--single{grid-template-columns:1fr}
-.gallery-row--portrait{grid-template-columns:repeat(2,minmax(0,1fr));width:min(72%,1050px);margin:0 auto}
-.gallery-row--portrait.gallery-row--single{grid-template-columns:1fr;width:min(36%,520px)}
-.bear-gallery-item{margin:0;overflow:hidden}
-.bear-gallery-item img{display:block;width:100%;height:auto}
-@media(max-width:800px){
-.bear-main-image--portrait{height:auto;max-height:75vh}
-.bear-detail-gallery,.gallery-row{gap:12px}
-.gallery-row--landscape,.gallery-row--portrait{grid-template-columns:1fr;width:100%}
-.gallery-row--portrait .bear-gallery-item{width:min(78%,480px);margin:0 auto}
-.gallery-row--portrait.gallery-row--single{width:100%}
+/* GALERIA PODSTRON — wyrównanie do kolumny historii.
+   Wspólne wcięcie dla nagłówka, zdjęć poziomych i pionowych.
+   Dotyczy tylko podstron niedźwiadków, nie galerii na stronie głównej. */
+.bear-detail-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-left: calc(20% + 50px);
+    min-width: 0;
+}
+
+.gallery-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    align-items: start;
+    width: 100%;
+    margin: 0;
+}
+
+.gallery-row--single {
+    /* Samotna fotografia zajmuje pierwszą kolumnę, nie rozciąga się. */
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.bear-gallery-item {
+    margin: 0;
+    min-width: 0;
+    overflow: hidden;
+}
+
+.bear-gallery-item img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+@media (max-width: 800px) {
+    .bear-detail-gallery {
+        margin-left: 0;
+        gap: 12px;
+    }
+
+    .gallery-row,
+    .gallery-row--single {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 12px;
+    }
 }
 
 /* ========================================
