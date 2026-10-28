@@ -10,6 +10,17 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../style.css">
+<style>
+.bear-photo-link { display: block; cursor: zoom-in; }
+.bear-photo-link img { display: block; }
+.bear-lightbox { position: fixed; inset: 0; z-index: 99999; display: none;
+  background: rgba(0,0,0,.94); align-items: center; justify-content: center; padding: 55px 18px 30px; box-sizing: border-box; }
+.bear-lightbox.is-open { display: flex; }
+.bear-lightbox img { max-width: 96vw; max-height: 88vh; width: auto; height: auto; object-fit: contain; }
+.bear-lightbox-close { position: absolute; right: 12px; top: 8px; border: 0;
+  background: transparent; color: white; font: 36px Arial,sans-serif; cursor: pointer;
+  padding: 8px 14px; }
+</style>
 </head>
 <body>
 <header class="header">
@@ -25,13 +36,47 @@
 <h1>Niedźwiadek Micek</h1>
 <div class="bear-meta"><div><span class="meta-label">Współrzędne</span><p>54.470813, 17.022521</p></div></div>
 </section>
-<section class="bear-main-photo"><img src="../micek/micek3.jpg" alt="Niedźwiadek Micek" class="bear-main-image"></section>
-<section class="bear-story"><div class="bear-story-label">HISTORIA</div><div class="bear-story-content"><h2>Niedźwiadek Micek</h2><p>Niedźwiadek został odsłonięty 16 września 2024 podczas obchodów 75-lecia powstania placówki. Autorem jest Jan Grocholski "Johny Porytko", absolwent II Liceum Ogólnokształcącego im. Adama Mickiewicza w Słupsku.</p></div></section>
-<section class="bear-gallery-section"><div class="bear-gallery-heading"><span>FOTOGRAFIE</span><h2>Galeria</h2></div><div class="bear-detail-gallery"><div class="gallery-row gallery-row--landscape gallery-row--single"><figure class="bear-gallery-item bear-gallery-item--landscape"><img src="../micek/micek2.jpg" alt="Niedźwiadek Micek – fotografia 2" loading="lazy"></figure></div><div class="gallery-row gallery-row--portrait"><figure class="bear-gallery-item bear-gallery-item--portrait"><img src="../micek/micek1.jpg" alt="Niedźwiadek Micek – fotografia 3" loading="lazy"></figure><figure class="bear-gallery-item bear-gallery-item--portrait"><img src="../micek/micek4.jpg" alt="Niedźwiadek Micek – fotografia 4" loading="lazy"></figure></div></div></section>
+<section class="bear-main-photo"><a class="bear-photo-link" href="../micek/micek3.jpg" data-lightbox aria-label="Powiększ zdjęcie: Niedźwiadek Micek"><img src="../micek/thumbs/micek3.webp" alt="Niedźwiadek Micek" class="bear-main-image" loading="eager" fetchpriority="high" decoding="async"></a></section>
+<section class="bear-story"><div class="bear-story-label">HISTORIA</div><div class="bear-story-content"><h2>Niedźwiadek Micek</h2><p>Niedźwiadek został odsłonięty 16 września 2024 podczas obchodów 75-lecia powstania placówki.</p></div></section>
+<section class="bear-gallery-section"><div class="bear-gallery-heading"><span>FOTOGRAFIE</span><h2>Galeria</h2></div><div class="bear-detail-gallery"><div class="gallery-row gallery-row--landscape gallery-row--single"><figure class="bear-gallery-item bear-gallery-item--landscape"><a class="bear-photo-link" href="../micek/micek2.jpg" data-lightbox aria-label="Powiększ zdjęcie: Niedźwiadek Micek – fotografia 2"><img src="../micek/thumbs/micek2.webp" alt="Niedźwiadek Micek – fotografia 2" loading="lazy" decoding="async"></a></figure></div><div class="gallery-row gallery-row--portrait"><figure class="bear-gallery-item bear-gallery-item--portrait"><a class="bear-photo-link" href="../micek/micek1.jpg" data-lightbox aria-label="Powiększ zdjęcie: Niedźwiadek Micek – fotografia 3"><img src="../micek/thumbs/micek1.webp" alt="Niedźwiadek Micek – fotografia 3" loading="lazy" decoding="async"></a></figure><figure class="bear-gallery-item bear-gallery-item--portrait"><a class="bear-photo-link" href="../micek/micek4.jpg" data-lightbox aria-label="Powiększ zdjęcie: Niedźwiadek Micek – fotografia 4"><img src="../micek/thumbs/micek4.webp" alt="Niedźwiadek Micek – fotografia 4" loading="lazy" decoding="async"></a></figure></div></div></section>
 <section class="bear-navigation">
 <a href="mechanik.html"><span>← POPRZEDNI</span>Niedźwiadek Mechanik</a>
 <a href="w-nutki.html" class="next-bear"><span>NASTĘPNY →</span>Niedźwiadek w Nutki</a>
 </section>
 </main>
 <footer><div>NIEDŹWIADKI SŁUPSK</div><div>niedzwiadkislupsk.org</div><div>Mikołaj Żytkiewicz \ oryer enterprises \ © 2026</div></footer>
+<div class="bear-lightbox" id="bear-lightbox" role="dialog" aria-modal="true" aria-label="Powiększone zdjęcie">
+  <button class="bear-lightbox-close" type="button" aria-label="Zamknij zdjęcie">&times;</button>
+  <img alt="">
+</div>
+<script>
+(function () {
+  const overlay = document.getElementById('bear-lightbox');
+  const large = overlay.querySelector('img');
+  const close = overlay.querySelector('button');
+  let previousFocus = null;
+  function hide() {
+    overlay.classList.remove('is-open');
+    document.body.style.overflow = '';
+    large.removeAttribute('src');
+    if (previousFocus) previousFocus.focus();
+  }
+  document.querySelectorAll('a[data-lightbox]').forEach(function (link) {
+    link.addEventListener('click', function (event) {
+      event.preventDefault();
+      previousFocus = document.activeElement;
+      large.src = link.href;
+      large.alt = link.querySelector('img').alt;
+      overlay.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+      close.focus();
+    });
+  });
+  close.addEventListener('click', hide);
+  overlay.addEventListener('click', function (event) { if (event.target === overlay) hide(); });
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape' && overlay.classList.contains('is-open')) hide();
+  });
+})();
+</script>
 </body></html>
