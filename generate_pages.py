@@ -85,6 +85,22 @@ def gallery_html(b):
 
 # CSS i JS dotyczą tylko nowych podstron; nie zmieniają strony głównej ani uMap.
 LIGHTBOX_STYLE = '''<style>
+/* Główna fotografia wyrównana do początku kolumny z tekstem historii. */
+@media (min-width: 801px) {
+  .bear-main-photo {
+    display: grid;
+    grid-template-columns: 20% minmax(0, 1fr);
+    column-gap: 50px;
+  }
+  .bear-main-photo > .bear-photo-link {
+    grid-column: 2;
+    justify-self: start;
+    max-width: 100%;
+  }
+}
+@media (max-width: 800px) {
+  .bear-main-photo { display: block; }
+}
 .bear-photo-link { display: block; cursor: zoom-in; }
 .bear-photo-link img { display: block; }
 .bear-lightbox { position: fixed; inset: 0; z-index: 99999; display: none;
