@@ -1641,3 +1641,61 @@ html {
         scroll-padding-top: 75px;
     }
 }
+/* Poprawka 28.10.2026: uporządkowana galeria na podstronach.
+   Wcięcie odpowiada kolumnie tekstu historii; bez rozciągania zdjęć.
+   Celowo nie zmieniamy czarnego tła ani stylów strony głównej. */
+@media (min-width: 801px) {
+  .bear-gallery-section .bear-detail-gallery {
+    margin-left: calc(20% + 50px);
+    width: min(950px, calc(80% - 50px));
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+  .bear-gallery-section .gallery-row,
+  .bear-gallery-section .gallery-row--landscape,
+  .bear-gallery-section .gallery-row--portrait,
+  .bear-gallery-section .gallery-row--single {
+    width: 100%;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    align-items: start;
+  }
+  .bear-gallery-section .bear-gallery-item {
+    margin: 0;
+    width: 100%;
+    min-width: 0;
+  }
+  .bear-gallery-section .bear-gallery-item img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+}
+@media (max-width: 800px) {
+  .bear-gallery-section .bear-detail-gallery {
+    width: 100%;
+    margin-left: 0;
+    gap: 12px;
+  }
+  .bear-gallery-section .gallery-row,
+  .bear-gallery-section .gallery-row--landscape,
+  .bear-gallery-section .gallery-row--portrait,
+  .bear-gallery-section .gallery-row--single {
+    width: 100%;
+    margin: 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+  .bear-gallery-section .bear-gallery-item,
+  .bear-gallery-section .gallery-row--portrait .bear-gallery-item {
+    width: 100%;
+    margin: 0;
+  }
+}
